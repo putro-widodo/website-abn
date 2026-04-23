@@ -8,7 +8,7 @@ export default function ServicePage() {
     {
       title: "Solar Power Plants (PLTS)",
       category: "RENEWABLE ENERGY",
-      icon: <Zap className="w-7 h-7" />, // Ikon diperbesar sedikit
+      icon: <Zap className="w-7 h-7" />,
       desc: "Delivering clean and renewable solar power solutions, either as standalone systems or hybrid integration with diesel/gas generators.",
     },
     {
@@ -44,38 +44,39 @@ export default function ServicePage() {
   ];
 
   return (
-    <div className="bg-[#FCFCFC] min-h-screen pt-40 pb-24 font-sans selection:bg-[#D4AF37] selection:text-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="bg-[#FCFCFC] min-h-screen pt-28 md:pt-40 pb-24 font-sans selection:bg-[#D4AF37] selection:text-white overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
         {/* --- HEADER --- */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-10">
-          <div className="max-w-2xl space-y-6">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 md:mb-24 gap-8 md:gap-10">
+          <div className="max-w-3xl space-y-4 md:space-y-6">
             <div className="flex items-center gap-4">
-              <div className="h-[2px] w-12 bg-red-700"></div>
-              {/* Teks dipertegas ke gray-600 */}
-              <span className="text-[11px] font-black uppercase tracking-[0.4em] text-gray-600">Core Energy Services</span>
+              <div className="h-[2px] w-8 md:w-12 bg-red-700 flex-shrink-0"></div>
+              <span className="text-[9px] md:text-[11px] font-black uppercase tracking-[0.3em] md:tracking-[0.4em] text-gray-600">Core Energy Services</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif text-[#001F3F] leading-tight font-bold">
-              Comprehensive <br />
-              {/* Dipertegas dari gray-300 ke gray-500 + Underline Emas */}
-              <span className="italic text-gray-500 font-light underline decoration-[#D4AF37] decoration-2 underline-offset-8">Infrastructure</span> Solutions.
+            {/* Responsif Font: text-4xl di mobile, text-7xl di desktop */}
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif text-[#001F3F] leading-[1.1] font-bold break-words">
+              Comprehensive <br className="hidden sm:block" />
+              <span className="italic text-gray-500 font-light underline decoration-[#D4AF37] decoration-2 underline-offset-4 md:underline-offset-8">Infrastructure</span> Solutions.
             </h1>
           </div>
-          {/* Deskripsi samping dipertegas ke gray-700 dan font-medium */}
-          <p className="text-gray-700 font-medium text-base max-w-xs border-l-2 border-[#D4AF37] pl-8 leading-relaxed italic">
+          
+          {/* Deskripsi samping: border di kiri hanya muncul di layar desktop ke atas agar rapi */}
+          <p className="text-gray-700 font-medium text-sm md:text-base max-w-sm border-l-2 border-[#D4AF37] pl-6 md:pl-8 leading-relaxed italic">
             Integrating advanced technical expertise with a disciplined supply chain to deliver reliable, flexible, and sustainable power supply.
           </p>
         </div>
 
         {/* --- SERVICES GRID --- */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 border border-gray-200 shadow-xl">
+        {/* Grid: 1 kolom di mobile, 2 di tablet, 3 di desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 border border-gray-200 shadow-xl">
           {coreServices.map((service, idx) => (
             <div 
               key={idx} 
-              className="bg-white p-12 space-y-8 hover:bg-gray-50 transition-all duration-500 group relative overflow-hidden"
+              className="bg-white p-8 sm:p-12 space-y-6 md:space-y-8 hover:bg-gray-50 transition-all duration-500 group relative overflow-hidden"
             >
-              {/* Background Number diperjelas sedikit agar terlihat tekstur modernnya */}
-              <div className="absolute top-0 right-0 p-8 text-6xl font-black text-gray-100 uppercase select-none group-hover:text-[#D4AF37]/10 transition-colors">
+              {/* Background Number: diperkecil di mobile agar tidak menutupi teks */}
+              <div className="absolute top-0 right-0 p-4 md:p-8 text-5xl md:text-6xl font-black text-gray-100 uppercase select-none group-hover:text-[#D4AF37]/10 transition-colors">
                 0{idx + 1}
               </div>
 
@@ -83,20 +84,18 @@ export default function ServicePage() {
                 {service.icon}
               </div>
 
-              <div className="space-y-4 relative z-10">
-                <span className="text-[10px] font-black text-[#D4AF37] tracking-[0.3em] uppercase">
+              <div className="space-y-3 md:space-y-4 relative z-10">
+                <span className="text-[9px] md:text-[10px] font-black text-[#D4AF37] tracking-[0.2em] md:tracking-[0.3em] uppercase">
                   {service.category}
                 </span>
-                <h3 className="text-3xl font-serif text-[#001F3F] font-bold group-hover:translate-x-2 transition-transform duration-500">
+                <h3 className="text-2xl md:text-3xl font-serif text-[#001F3F] font-bold group-hover:translate-x-2 transition-transform duration-500 leading-tight">
                   {service.title}
                 </h3>
-                {/* Deskripsi diubah menjadi gray-800 dan font-medium agar sangat jelas dibaca */}
-                <p className="text-gray-800 text-base font-medium leading-relaxed">
+                <p className="text-gray-800 text-sm md:text-base font-medium leading-relaxed break-words">
                   {service.desc}
                 </p>
               </div>
 
-              {/* Tambahan visual penutup kartu agar lebih dewasa */}
               <div className="h-[2px] w-0 bg-[#D4AF37] group-hover:w-full transition-all duration-700 absolute bottom-0 left-0"></div>
             </div>
           ))}
