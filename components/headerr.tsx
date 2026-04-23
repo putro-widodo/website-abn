@@ -4,13 +4,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
 
 export default function Headerr() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Kunci scroll body saat menu dibuka
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -21,6 +20,13 @@ export default function Headerr() {
 
   const isActive = (path: string) => pathname === path;
   const closeMenu = () => setIsMenuOpen(false);
+
+  const menuItems = [
+    { id: "01", name: "Home", path: "/" },
+    { id: "02", name: "About Us", path: "/about" },
+    { id: "03", name: "Service", path: "/service" },
+    { id: "04", name: "Contact Us", path: "/contact" },
+  ];
 
   return (
     <nav className="fixed w-full z-[100] bg-white/95 backdrop-blur-md border-b border-gray-100">
@@ -42,28 +48,26 @@ export default function Headerr() {
           </Link>
         </div>
 
-        {/* DESKTOP MENU (Hanya muncul di layar XL / Besar) */}
+        {/* DESKTOP MENU */}
         <div className="hidden xl:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-[#001F3F]">
-          <Link href="/" className={`${isActive('/') ? 'text-[#D4AF37]' : 'hover:text-[#D4AF37]'} transition-colors`}>
-            Home
-          </Link>
-          <Link href="/about" className={`${isActive('/about') ? 'text-[#D4AF37]' : 'hover:text-[#D4AF37]'} transition-colors`}>
-            About
-          </Link>
-          <Link href="/service" className={`${isActive('/service') ? 'text-[#D4AF37]' : 'hover:text-[#D4AF37]'} transition-colors`}>
-            Service
-          </Link>
+          {menuItems.map((item) => (
+            <Link 
+              key={item.path}
+              href={item.path} 
+              className={`${isActive(item.path) ? 'text-[#D4AF37]' : 'hover:text-[#D4AF37]'} transition-colors`}
+            >
+              {item.name}
+            </Link>
+          ))}
           <Link 
             href="/contact" 
-            className={`px-8 py-3 transition-all duration-500 shadow-sm ${
-              isActive('/contact') ? 'bg-[#D4AF37] text-white' : 'bg-[#001F3F] text-white hover:bg-[#D4AF37]'
-            }`}
+            className="px-8 py-3 bg-[#001F3F] text-white hover:bg-[#D4AF37] transition-all duration-500 shadow-sm"
           >
             Contact Us
           </Link>
         </div>
 
-        {/* MOBILE & TABLET TOGGLE BUTTON (Muncul di layar selain XL) */}
+        {/* MOBILE TOGGLE BUTTON */}
         <button 
           className="xl:hidden p-2 text-[#001F3F] z-[110] transition-transform active:scale-90"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -74,31 +78,49 @@ export default function Headerr() {
 
         {/* MOBILE FULLSCREEN OVERLAY */}
         <div className={`
-          fixed inset-0 bg-white z-[105] flex flex-col pt-32 px-10 transition-all duration-500 xl:hidden
+          fixed inset-0 bg-gray-50 z-[105] flex flex-col pt-28 px-6 transition-all duration-500 xl:hidden
           ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}
         `}>
-          <div className="flex flex-col gap-8 text-[22px] font-serif italic text-[#001F3F] border-l-2 border-[#D4AF37] pl-8">
-            <Link href="/" onClick={closeMenu} className={`flex items-center justify-between ${isActive('/') ? 'text-[#D4AF37]' : 'text-gray-300'}`}>
-              <span>01. Home</span>
-            </Link>
-            <Link href="/about" onClick={closeMenu} className={`flex items-center justify-between ${isActive('/about') ? 'text-[#D4AF37]' : 'text-gray-300'}`}>
-              <span>02. About Us</span>
-            </Link>
-            <Link href="/service" onClick={closeMenu} className={`flex items-center justify-between ${isActive('/service') ? 'text-[#D4AF37]' : 'text-gray-300'}`}>
-              <span>03. Service</span>
-            </Link>
-            <Link href="/contact" onClick={closeMenu} className={`flex items-center justify-between ${isActive('/contact') ? 'text-[#D4AF37]' : 'text-gray-300'}`}>
-              <span>04. Contact Us</span>
-            </Link>
+          
+          {/* MENU ITEMS WITH WHITE BOXES */}
+          <div className="flex flex-col gap-4">
+            <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-2 px-2">Navigation Menu</p>
+            
+            {menuItems.map((item) => (
+              <Link 
+                key={item.path}
+                href={item.path} 
+                onClick={closeMenu}
+                className={`
+                  flex items-center justify-between p-5 rounded-xl shadow-sm border transition-all duration-300
+                  ${isActive(item.path) 
+                    ? 'bg-white border-[#D4AF37] translate-x-2' 
+                    : 'bg-white border-transparent active:scale-95'}
+                `}
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-[10px] font-black text-[#D4AF37]">{item.id}</span>
+                  <span className={`text-lg font-serif italic ${isActive(item.path) ? 'text-[#D4AF37]' : 'text-[#001F3F]'}`}>
+                    {item.name}
+                  </span>
+                </div>
+                <ChevronRight size={18} className={isActive(item.path) ? 'text-[#D4AF37]' : 'text-gray-300'} />
+              </Link>
+            ))}
           </div>
 
-          <div className="mt-auto pb-12 space-y-6">
-            <div className="h-[1px] w-full bg-gray-100"></div>
-            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.5em]">PT Adika Badi Nusantara</p>
-            <p className="text-xs text-gray-500 font-light leading-relaxed">
-              SOHO Pancoran, Unit 1701 <br />
-              Jakarta Selatan, Indonesia
-            </p>
+          {/* FOOTER INFO */}
+          <div className="mt-auto pb-10 space-y-6">
+            <div className="bg-[#001F3F] p-6 rounded-2xl text-white shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-10 font-black text-4xl select-none">ABN</div>
+              <p className="text-[9px] font-bold text-[#D4AF37] uppercase tracking-[0.3em] mb-2">Corporate Office</p>
+              <p className="text-xs leading-relaxed font-medium">
+                Gedung SOHO Pancoran, Unit 1701 <br />
+                Jakarta Selatan, Indonesia
+              </p>
+              <div className="h-[1px] w-12 bg-[#D4AF37] mt-4"></div>
+            </div>
+            <p className="text-[9px] text-center font-bold text-gray-400 uppercase tracking-[0.8em]">PT Adika Badi Nusantara</p>
           </div>
         </div>
 
