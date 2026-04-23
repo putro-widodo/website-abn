@@ -1,65 +1,139 @@
-import Image from "next/image";
+"use client";
+
+import React from "react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="bg-white text-[#1a1a1a] font-sans selection:bg-[#D4AF37] selection:text-white">
+      
+      {/* --- HERO SECTION --- */}
+      <section className="relative min-h-[90vh] flex items-center pt-20 border-b border-gray-100">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/graphy.png')] opacity-10 pointer-events-none"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-12 gap-12 items-center relative z-10">
+          <div className="md:col-span-7 space-y-10">
+            <div className="flex items-center gap-4">
+              <div className="h-[2px] w-12 bg-red-700"></div>
+              <span className="text-[11px] font-black uppercase tracking-[0.4em] text-gray-600">
+                Established 2017 | ISO Certified Standards
+              </span>
+            </div>
+
+            <h1 className="text-5xl md:text-[85px] font-bold leading-[1.05] tracking-tight text-[#001F3F] font-serif">
+              Engineering <br />
+              <span className="font-light italic text-[#D4AF37]">Industrial</span> Excellence.
+            </h1>
+
+            <p className="max-w-xl text-gray-700 text-lg leading-relaxed font-medium">
+              PT Adika Badi Nusantara provides comprehensive solutions in general construction and strategic procurement. We deliver structural integrity through disciplined engineering and superior corporate governance.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <a href="/service" className="px-12 py-5 bg-[#001F3F] text-white text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#D4AF37] transition-all duration-300 shadow-xl text-center">
+                Our Capabilities
+              </a>
+              <a href="/about" className="px-12 py-5 border-2 border-[#001F3F] text-[#001F3F] text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-gray-50 transition-all duration-300 text-center">
+                Company Profile
+              </a>
+            </div>
+          </div>
+          
+          <div className="hidden md:block md:col-span-5 relative">
+            <div className="aspect-[4/5] bg-gray-100 relative overflow-hidden border border-gray-200 group">
+                <div className="absolute inset-0 border-[15px] border-white z-10 shadow-inner"></div>
+                <div className="absolute inset-0 flex items-center justify-center p-12 text-center bg-white">
+                   <p className="text-[#001F3F] font-serif text-2xl leading-relaxed italic font-medium">
+                     "Focusing on the convergence of precision engineering and strategic supply chain management."
+                   </p>
+                </div>
+            </div>
+            {/* Kotak kuning 01 telah dihapus dari sini */}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* --- CORPORATE VALUES --- */}
+      <section id="about" className="py-32 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-16">
+            {[
+              { label: "01 / Vision", title: "National Contribution", desc: "To be the most trusted partner in Indonesia's infrastructure development, prioritizing human resource growth." },
+              { label: "02 / Governance", title: "Strategic Precision", desc: "Every project is an exercise in meticulous planning and execution, ensuring compliance with global standards." },
+              { label: "03 / Supply", title: "End-to-End Synergy", desc: "Seamless integration between construction services and strategic material supply for project efficiency." }
+            ].map((value, idx) => (
+              <div key={idx} className="space-y-6">
+                <span className="text-[#D4AF37] text-sm font-black tracking-[0.3em] uppercase">{value.label}</span>
+                <h3 className="text-3xl font-serif font-bold text-[#001F3F]">{value.title}</h3>
+                <p className="text-gray-800 text-base leading-relaxed font-medium">{value.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* --- SERVICES LIST --- */}
+      <section id="services" className="py-32 bg-[#F9FAFB]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-20 space-y-4">
+            <h2 className="text-[#001F3F] text-4xl md:text-6xl font-serif font-bold">Comprehensive Expertise</h2>
+            <div className="h-2 w-24 bg-[#D4AF37]"></div>
+          </div>
+
+          <div className="space-y-0 border-t-2 border-[#001F3F]">
+            {[
+              { title: "General Construction", category: "CIVIL & STRUCTURAL", desc: "Expertise in high-precision steel construction, foundation works, and industrial renovations." },
+              { title: "Mechanical & Electrical", category: "ENGINEERING SYSTEMS", desc: "Strategic implementation of power distribution, HVAC, and industrial mechanical installations." },
+              { title: "Strategic Material Supply", category: "PROCUREMENT", desc: "Global sourcing and logistics for high-grade industrial equipment and construction materials." }
+            ].map((item, idx) => (
+              <div key={idx} className="group py-14 flex flex-col md:flex-row items-start md:items-center justify-between border-b border-gray-200 transition-all duration-300 px-6">
+                <div className="space-y-2 max-w-md">
+                  <span className="text-[10px] font-black text-red-700 tracking-[0.3em] uppercase">{item.category}</span>
+                  <h4 className="text-4xl font-serif font-bold text-[#001F3F] transition-colors">{item.title}</h4>
+                </div>
+                <p className="text-gray-700 text-md max-w-sm font-bold mt-4 md:mt-0 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- STATS --- */}
+      <section className="py-24 bg-[#001F3F] text-white">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+          <div className="space-y-2">
+            <span className="text-5xl font-bold font-serif text-[#D4AF37]">70+</span>
+            <p className="text-[12px] uppercase tracking-[0.2em] font-black text-white">Projects Delivered</p>
+          </div>
+          <div className="space-y-2 border-l border-white/20">
+            <span className="text-5xl font-bold font-serif text-[#D4AF37]">Expert</span>
+            <p className="text-[12px] uppercase tracking-[0.2em] font-black text-white">Engineers & Staff</p>
+          </div>
+          <div className="space-y-2 border-l border-white/20">
+            <span className="text-5xl font-bold font-serif text-[#D4AF37]">2017</span>
+            <p className="text-[12px] uppercase tracking-[0.2em] font-black text-white">Year Established</p>
+          </div>
+          <div className="space-y-2 border-l border-white/20">
+            <span className="text-5xl font-bold font-serif text-[#D4AF37]">Premium</span>
+            <p className="text-[12px] uppercase tracking-[0.2em] font-black text-white">Service Quality</p>
+          </div>
+        </div>
+      </section>
+
+      {/* --- CTA --- */}
+      <section id="contact" className="py-40 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
+          <h2 className="text-4xl md:text-7xl font-serif text-[#001F3F] leading-tight font-bold">
+            Let's discuss your next <br /> 
+            <span className="text-[#D4AF37] italic font-light">industrial landmark.</span>
+          </h2>
+          <div className="pt-8">
+            <a href="/contact" className="inline-block px-20 py-7 bg-[#001F3F] text-white text-[13px] font-black uppercase tracking-[0.4em] hover:bg-[#D4AF37] transition-all duration-500 shadow-2xl">
+              Schedule Consultation
+            </a>
+          </div>
+        </div>
+      </section>
+      
     </div>
   );
 }
