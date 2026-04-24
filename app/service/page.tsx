@@ -1,41 +1,48 @@
 "use client";
 
 import React from "react";
+import Link from "next/link"; 
 import { Zap, Settings, Truck, ShieldCheck, Activity, PenTool } from "lucide-react";
 
 export default function ServicePage() {
   const coreServices = [
     {
+      id: "plts", 
       title: "Solar Power Plants (PLTS)",
       category: "RENEWABLE ENERGY",
       icon: <Zap className="w-7 h-7" />,
       desc: "Delivering clean and renewable solar power solutions, either as standalone systems or hybrid integration with diesel/gas generators.",
     },
     {
+      id: "pltmg",
       title: "Gas Engine (PLTMG)",
       category: "NATURAL GAS SOLUTIONS",
       icon: <Activity className="w-7 h-7" />,
       desc: "Offering natural gas-based power solutions that are efficient, environmentally friendly, and suitable for long-term operations.",
     },
     {
+      id: "pltd",
       title: "Diesel Power Plants (PLTD)",
       category: "CONVENTIONAL POWER",
       icon: <Settings className="w-7 h-7" />,
       desc: "Providing reliable and flexible diesel generator rental services to meet urgent or temporary electricity demands.",
     },
     {
+      id: "om",
       title: "Operation & Maintenance",
       category: "TECHNICAL SERVICES",
       icon: <PenTool className="w-7 h-7" />,
       desc: "Comprehensive O&M services ensuring optimal performance with 24/7 monitoring and skilled technical teams.",
     },
     {
+      id: "strategic",
       title: "Strategic Material Supply",
       category: "PROCUREMENT",
       icon: <Truck className="w-7 h-7" />,
       desc: "Global sourcing of high-grade industrial equipment, spare parts, and construction materials for project efficiency.",
     },
     {
+      id: "engineering",
       title: "Engineering Support",
       category: "PROJECT GOVERNANCE",
       icon: <ShieldCheck className="w-7 h-7" />,
@@ -54,28 +61,26 @@ export default function ServicePage() {
               <div className="h-[2px] w-8 md:w-12 bg-red-700 flex-shrink-0"></div>
               <span className="text-[9px] md:text-[11px] font-black uppercase tracking-[0.3em] md:tracking-[0.4em] text-gray-600">Core Energy Services</span>
             </div>
-            {/* Responsif Font: text-4xl di mobile, text-7xl di desktop */}
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif text-[#001F3F] leading-[1.1] font-bold break-words">
               Comprehensive <br className="hidden sm:block" />
               <span className="italic text-gray-500 font-light underline decoration-[#D4AF37] decoration-2 underline-offset-4 md:underline-offset-8">Infrastructure</span> Solutions.
             </h1>
           </div>
           
-          {/* Deskripsi samping: border di kiri hanya muncul di layar desktop ke atas agar rapi */}
           <p className="text-gray-700 font-medium text-sm md:text-base max-w-sm border-l-2 border-[#D4AF37] pl-6 md:pl-8 leading-relaxed italic">
             Integrating advanced technical expertise with a disciplined supply chain to deliver reliable, flexible, and sustainable power supply.
           </p>
         </div>
 
         {/* --- SERVICES GRID --- */}
-        {/* Grid: 1 kolom di mobile, 2 di tablet, 3 di desktop */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 border border-gray-200 shadow-xl">
           {coreServices.map((service, idx) => (
-            <div 
+            <Link 
               key={idx} 
-              className="bg-white p-8 sm:p-12 space-y-6 md:space-y-8 hover:bg-gray-50 transition-all duration-500 group relative overflow-hidden"
+              // DIUBAH: Sekarang mengarah ke folder cervicedal sesuai request kamu
+              href={`/cervicedal/${service.id}`} 
+              className="bg-white p-8 sm:p-12 space-y-6 md:space-y-8 hover:bg-gray-50 transition-all duration-500 group relative overflow-hidden block"
             >
-              {/* Background Number: diperkecil di mobile agar tidak menutupi teks */}
               <div className="absolute top-0 right-0 p-4 md:p-8 text-5xl md:text-6xl font-black text-gray-100 uppercase select-none group-hover:text-[#D4AF37]/10 transition-colors">
                 0{idx + 1}
               </div>
@@ -94,10 +99,13 @@ export default function ServicePage() {
                 <p className="text-gray-800 text-sm md:text-base font-medium leading-relaxed break-words">
                   {service.desc}
                 </p>
+                <div className="pt-4 text-[#D4AF37] text-[10px] font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2">
+                  View Projects Detail <span>→</span>
+                </div>
               </div>
 
               <div className="h-[2px] w-0 bg-[#D4AF37] group-hover:w-full transition-all duration-700 absolute bottom-0 left-0"></div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
