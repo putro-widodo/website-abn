@@ -71,9 +71,9 @@ export default function Footerr() {
               <div className="space-y-4">
                 <span className="block text-[10px] font-bold text-[#D4AF37] uppercase tracking-widest">Workshop</span>
                 <p className="text-sm text-gray-400 leading-relaxed font-light">
-                  Kecamatan Pulo Gadung, <br />
-                  East jakarta City, <br />
-                  Indonesia.
+                  Jl. Pulo Gadung I No.3A Blok IV, RT.10/RW.3, Rw. Terate, <br />
+                  Kec. Cakung, Kota Jakarta Timur, <br />
+                  Daerah Khusus Ibukota Jakarta 13920
                 </p>
               </div>
             </div>
