@@ -45,7 +45,7 @@ const serviceData: any = {
     title: "Engineering Support",
     explanation: "Our engineering division provides end-to-end technical support, from feasibility studies and system design to commissioning and technical troubleshooting.",
     features: ["Feasibility Studies", "Technical Design (CAD/BIM)", "Commissioning Support", "Troubleshooting Experts"],
-    images: ["/eng1.jpg", "/eng2.jpg", "/eng3.jpg", "/eng4.jpg"]
+    images: ["/eng1.jpeg", "/eng2.jpeg", "/eng3.jpeg", "/eng4.jpeg"]
   }
 };
 
