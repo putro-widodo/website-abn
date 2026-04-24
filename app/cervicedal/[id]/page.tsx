@@ -13,7 +13,7 @@ const serviceData: any = {
     location: "Maratua Hybrid System",
     description: "Our Solar Power Plant in Maratua utilizes a sophisticated Hybrid System, combining solar energy with energy storage to ensure 24/7 power availability for remote areas.",
     features: ["Hybrid Energy Management", "BESS (Battery Energy Storage System)", "Sustainable Power Source", "Remote Monitoring"],
-    images: ["/plts1.jpg", "/plts2.jpg", "/plts3.jpg", "/plts4.jpg"]
+    images: ["/plts1.jpeg", "/plts2.jpeg", "/plts3.jpeg", "/plts4.jpeg"]
   },
   "pltmg": {
     title: "Gas Engine Power Plant (PLTMG)",
@@ -26,20 +26,20 @@ const serviceData: any = {
     title: "Diesel Power Plant (PLTD)",
     explanation: "PLTD (Pembangkit Listrik Tenaga Diesel) uses diesel engines as the prime mover to produce electricity. It is commonly used for peak-shaving or as a primary power source in isolated grids.",
     features: ["Reliable Base Load", "Easy Maintenance", "Scalable Capacity", "Grid Stability"],
-    images: ["/pltd1.jpg", "/pltd2.jpg", "/pltd3.jpg", "/pltd4.jpg"]
+    images: ["/pltd1.jpeg", "/pltd2.jpeg", "/pltd3.jpeg", "/pltd4.jpeg"]
   },
   "om": {
     title: "Operation & Maintenance",
     professionalism: "We deploy highly certified and professional technicians with extensive experience in power plant management.",
     procedures: "Based on our corporate standards, our O&M procedures include Preventive Maintenance (PM), Corrective Maintenance (CM), and Real-time Performance Analytics to minimize downtime.",
     features: ["24/7 Technical Support", "Standardized Safety Protocols", "Spare Parts Management", "Performance Optimization"],
-    images: ["/om1.jpg", "/om2.jpg", "/om3.jpg", "/om4.jpg"]
+    images: ["/onm1.png", "/onm2.png", "/onm3.png", "/onm5.png"]
   },
   "strategic": {
     title: "Strategic Cooperation",
     explanation: "We engage in intensive strategic meetings and planning with PLN (Perusahaan Listrik Negara) to support national electrification programs and infrastructure development.",
     features: ["PPA (Power Purchase Agreement) Consulting", "Regulatory Compliance", "Infrastructure Planning", "Grid Integration Strategy"],
-    images: ["/strat1.jpg", "/strat2.jpg", "/strat3.jpg", "/strat4.jpg"]
+    images: ["/sms1.jpeg", "/sms2.jpeg", "/sms3.jpeg", "/sms4.jpeg"]
   },
   "engineering": {
     title: "Engineering Support",
