@@ -71,9 +71,9 @@ export default function Footerr() {
               <div className="space-y-4">
                 <span className="block text-[10px] font-bold text-[#D4AF37] uppercase tracking-widest">Workshop</span>
                 <p className="text-sm text-gray-400 leading-relaxed font-light">
-                  Jl. Parakan 4 No. 9 Cinangka, <br />
-                  Sawangan, Depok, <br />
-                  West Java.
+                  Kecamatan Pulo Gadung, <br />
+                  East jakarta City, <br />
+                  Indonesia.
                 </p>
               </div>
             </div>
